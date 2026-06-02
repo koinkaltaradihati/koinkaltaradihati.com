@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="gradCircle" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2ecc71"/>
+      <stop offset="100%" stop-color="#3498db"/>
+    </linearGradient>
+    <radialGradient id="starGlow" cx="50%" cy="40%" r="40%">
+      <stop offset="0%" stop-color="#f1c40f"/>
+      <stop offset="100%" stop-color="#f39c12"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Circle Background -->
+  <circle cx="256" cy="256" r="248" fill="url(#gradCircle)" />
+
+  <!-- Star -->
+  <polygon points="256,90 272,132 318,136 284,166 294,210
+                   256,186 218,210 228,166 194,136 240,132"
+           fill="url(#starGlow)"/>
+
+  <!-- KDH Text -->
+  <text x="256" y="330"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="150"
+        font-weight="bold"
+        fill="#ffffff">
+    KDH
+  </text>
+</svg>
