@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400">
+  <defs>
+    <linearGradient id="gradMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2ecc71"/>
+      <stop offset="100%" stop-color="#3498db"/>
+    </linearGradient>
+    <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f1c40f"/>
+      <stop offset="100%" stop-color="#f39c12"/>
+    </radialGradient>
+  </defs>
+
+  <path d="M260 220 
+           C220 180, 230 120, 300 110
+           C340 70, 430 80, 470 130
+           C520 170, 500 250, 430 270
+           C360 300, 290 270, 260 220 Z"
+        fill="url(#gradMain)" opacity="0.9"/>
+
+  <path d="M180 260 C260 330, 520 330, 640 250"
+        fill="none" stroke="url(#gradMain)" stroke-width="18" stroke-linecap="round"/>
+
+  <polygon points="420,60 440,105 490,110 455,145 465,195 
+                   420,165 375,195 385,145 350,110 400,105"
+           fill="url(#starGlow)"/>
+
+  <text x="520" y="235"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="160"
+        font-weight="bold"
+        fill="url(#gradMain)">
+    KDH
+  </text>
+
+  <text x="300" y="340"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="36"
+        fill="#2c3e50">
+    KOIN KALTARA DI HATI
+  </text>
+
+  <text x="270" y="380"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="22"
+        fill="#555">
+    Token Komunitas &amp; UMKM Kalimantan Utara
+  </text>
+</svg>
