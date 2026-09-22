@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Koin Kaltara Di Hati (KDH) - Official Website</title>
   <link rel="icon" type="image/svg+xml" href="kdh-icon-circle.svg">
+  
+  <!-- PayPal JS SDK -->
+  <script src="https://www.paypal.com/sdk/js?client-id=BAAXj7031eHTNrt9gmvJyekjO5yPXnEfRT41C1tGgUGqStm2GLK552HGdgA_plgCDsQEASA38Td7VLaKoU&currency=USD"></script>
+
   <style>
     /* CSS MANDIRI - LENGKAP & KLASIK */
     * { box-sizing: border-box; }
@@ -86,6 +90,15 @@
     </div>
   </section>
 
+  <!-- Section Pembayaran PayPal -->
+  <section style="text-align: center;">
+    <h2>Dukungan & Pembayaran Resmi PayPal</h2>
+    <p>Dukung pengembangan ekosistem KDH melalui pembayaran kartu kredit / saldo PayPal.</p>
+    <div style="max-width: 400px; margin: 20px auto;">
+      <div id="paypal-button-container"></div>
+    </div>
+  </section>
+
   <section>
     <h2>Dokumentasi & Komunitas</h2>
     <p>Akses seluruh dokumen resmi dan kanal komunitas kami di bawah ini:</p>
@@ -98,40 +111,42 @@
   </section>
 
   <section>
-    <h2>Struktur Manajemen Profesional</h2>
-    <div class="member">
-      <img src="yahya_ceo.png" class="profile-img">
-      <div>
-        <p class="role">Chief Executive Officer (CEO)</p>
-        <p class="name">YAHYA SM</p>
-        <p>Pemegang kebijakan strategis dan hubungan antar-lembaga (BPKAD).</p>
-      </div>
-    </div>
-    <div class="member">
-      <img src="azhar_cto.png" class="profile-img">
-      <div>
-        <p class="role">Founder & CTO</p>
-        <p class="name">AZHAR</p>
-        <p>Pengembang Smart Contract dan arsitek keamanan sistem blockchain.</p>
-      </div>
-    </div>
-    <div class="member">
-      <img src="Hamzah Alatas.png" class="profile-img">
-      <div>
-        <p class="role">Director of Global Brand Market</p>
-        <p class="name">HAMZAH ALATAS</p>
-        <p>Memperluas jangkauan pasar KDH di bursa internasional dan kemitraan global.</p>
-      </div>
-    </div>
-    <div class="member">
-      <img src="afwan_legal.png" class="profile-img">
-      <div>
-        <p class="role">Head of Regulatory & Legal</p>
-        <p class="name">AFWAN MAKSUM</p>
-        <p>Mengawal pendaftaran HKI (DJKI) dan kepatuhan hukum kripto daerah.</p>
-      </div>
-    </div>
-  </section>
+    <h2>Struktur Manajemen Profesional</h2>
+    <div class="member">
+      <img src="yahya_ceo.png" class="profile-img">
+      <div>
+        <p class="role">Chief Executive Officer (CEO)</p>
+        <p class="name">YAHYA SM</p>
+        <p>Pemegang kebijakan strategis dan hubungan antar-lembaga (BPKAD).</p>
+      </div>
+    </div>
+    <div class="member">
+      <img src="azhar_cto.png" class="profile-img">
+      <div>
+        <p class="role">Founder & CTO</p>
+        <p class="name">AZHAR</p>
+        <p>Pengembang Smart Contract dan arsitek keamanan sistem blockchain.</p>
+      </div>
+    </div>
+    <div class="member">
+      <img src="Hamzah Alatas.png" class="profile-img">
+      <div>
+        <p class="role">Director of Global Brand Market</p>
+        <p class="name">HAMZAH ALATAS</p>
+        <p>Memperluas jangkauan pasar KDH di bursa internasional dan kemitraan global.</p>
+      </div>
+    </div>
+    <div class="member">
+      <img src="afwan_legal.png" class="profile-img">
+      <div>
+        <p class="role">Head of Regulatory & Legal</p>
+        <p class="name">AFWAN MAKSUM</p>
+        <p>Mengawal pendaftaran HKI (DJKI) dan kepatuhan hukum kripto daerah.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
     <h2>Transparansi Pasar Real-Time</h2>
     <div style="height: 500px;">
       <iframe height="100%" width="100%" src="https://www.geckoterminal.com/bsc/pools/0xe6e6baebc2c05156ddf8ac3ee8060e0a127663ca?embed=1&info=1&swaps=1" frameborder="0" allowfullscreen></iframe>
@@ -192,6 +207,35 @@
       panel.style.display = panel.style.display === "block" ? "none" : "block";
     });
   }
+
+  // Inisialisasi PayPal Buttons
+  paypal.Buttons({
+    style: {
+      layout: 'vertical',
+      color:  'gold',
+      shape:  'rect',
+      label:  'paypal'
+    },
+    createOrder: function(data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: '10.00' // Nominal dalam USD (sesuaikan kebutuhan)
+          },
+          description: 'Dukungan Ekosistem Koin Kaltara Di Hati (KDH)'
+        }]
+      });
+    },
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        alert('Terima kasih! Transaksi berhasil dilakukan oleh ' + details.payer.name.given_name);
+      });
+    },
+    onError: function(err) {
+      console.error(err);
+      alert('Terjadi kesalahan saat memproses pembayaran.');
+    }
+  }).render('#paypal-button-container');
 </script>
 </body>
 </html>
